@@ -10,7 +10,7 @@ gulp.task('clean', function () {
 });
 
 gulp.task('css_core', function () {
-    return gulp.src('./src/css/core/main.styl')
+    return gulp.src('./src/css/core/core.styl')
         .pipe(stylus())
         .pipe(gulp.dest('./dist/css'));
 });

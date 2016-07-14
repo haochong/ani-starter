@@ -33,8 +33,6 @@
         }
     };
 
-
-    Ani.init();
     win.Ani = Ani;
     
 })( window );
