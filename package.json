@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/haochong/ani-starter/issues"
   },
-  "homepage": "https://github.com/haochong/ani-starter#readme"
+  "homepage": "https://github.com/haochong/ani-starter#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
 }
