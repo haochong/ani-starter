@@ -25,6 +25,7 @@ gulp.task('js_core', function() {
         './src/js/core/ajax.js',
         './node_modules/mustache/mustache.min.js',
         './node_modules/page/page.js',
+        './src/js/core/router.js',
         './src/js/core/ready.js'
     ];
 
@@ -44,6 +45,7 @@ gulp.task('js_core_dev', function() {
         './src/js/core/ajax.js',
         './node_modules/mustache/mustache.min.js',
         './node_modules/page/page.js',
+        './src/js/core/router.js',
         './src/js/core/ready.js'
     ];
 
