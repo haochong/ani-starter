@@ -2,6 +2,8 @@
 
     'use strict';
 
+    var listenEvt = 'click';
+
     var triggerEvt = function(el) {
         var evt = el.getAttribute('evt');
         if(evt) {
@@ -30,14 +32,12 @@
     }
 
     if (('addEventListener' in document) && ('querySelectorAll' in document) && (('ontouchstart' in window) || ('onmsgesturechange' in window))) {
-        document.addEventListener('touchstart', function(e) {
-            evtHandler(e);
-        }, false);
-    } else {
-        document.addEventListener('click', function(e) {
-            evtHandler(e);
-        });
+        listenEvt = 'touchstart';
     }
+
+    document.addEventListener(listenEvt, function(e) {
+        evtHandler(e);
+    }, false);
 
 })( window );
 
