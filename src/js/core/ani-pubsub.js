@@ -6,6 +6,9 @@
         topics: {},
         subUid: -1,
         sub: function(topic, func) {
+
+            AniLog('Ani.sub '+topic);
+
             if (!Ani.topics[topic]) {
                 Ani.topics[topic] = [];
             }
@@ -17,6 +20,9 @@
             return token;
         },
         pub : function(topic, args) {
+
+            AniLog('Ani.pub '+topic, args);
+
             if (!Ani.topics[topic]) {
                 return false;
             }
