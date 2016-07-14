@@ -3,7 +3,13 @@
     'use strict';
 
     page('/testpage', function(){
-        document.body.innerHTML = 'this is test page';
+        Ani.pub('dom.page.render', {
+           tpl: 'test-page-tpl',
+            data: {
+                name: 'test me'
+            }
+        });
+
     });
 
     Ani.sub('page.redirect', function(event, el) {
