@@ -17,14 +17,15 @@ gulp.task('css_core', function () {
 
 gulp.task('js_core', function() {
     var jsArray = [
-        './src/js/core/ani-log.js',
-        './src/js/core/ani-pubsub.js',
-        './src/js/core/ani-require.js',
-        './src/js/core/ani-dom.js',
-        './src/js/core/ani-evt.js',
+        './src/js/core/log.js',
+        './src/js/core/pubsub.js',
+        './src/js/core/require.js',
+        './src/js/core/dom.js',
+        './src/js/core/evt.js',
         './src/js/core/ajax.js',
         './node_modules/mustache/mustache.min.js',
-        './node_modules/page/page.js'
+        './node_modules/page/page.js',
+        './src/js/core/ready.js'
     ];
 
     return gulp.src(jsArray)
@@ -34,15 +35,16 @@ gulp.task('js_core', function() {
 
 gulp.task('js_core_dev', function() {
     var jsArray = [
-        './src/js/core/ani-log.js',
-        './src/js/core/ani-pubsub.js',
-        './src/js/core/ani-require.js',
-        './src/js/core/ani-dom.js',
-        './src/js/core/ani-evt.js',
+        './src/js/core/log.js',
+        './src/js/core/pubsub.js',
+        './src/js/core/require.js',
+        './src/js/core/dom.js',
+        './src/js/core/evt.js',
         './src/js/dev/mock.js',
         './src/js/core/ajax.js',
         './node_modules/mustache/mustache.min.js',
-        './node_modules/page/page.js'
+        './node_modules/page/page.js',
+        './src/js/core/ready.js'
     ];
 
     return gulp.src(jsArray)
