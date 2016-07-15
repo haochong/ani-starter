@@ -12,19 +12,16 @@
     <div id="page-loading">
         <span class="msg">加载中...</span>
     </div>
-
-    <div class="evt" evt="kiki">
-        <span>test evt block</span>
-    </div>
-
-    <div class="evt" evt="ajax.mock.test">test ajax mock data</div>
-
-    <div class="evt" evt="page.redirect" page="/testpage">test router</div>
-
-    <div id="test-page-tpl" style="display:none;">
-        <div class="test-me">{{name}}</div>
-    </div>
 </div>
+
+<div id="home-page-tpl" style="display:none;">
+    <div class="home-page">{{name}}</div>
+    {{> footer-tpl}}
+</div>
+<div id="footer-tpl" style="display:none;">
+    <div class="footer-wrap">this is footer </div>
+</div>
+
 </body>
 <script src="../dist/js/core_dev.js"></script>
 </html>

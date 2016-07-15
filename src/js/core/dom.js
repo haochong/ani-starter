@@ -72,15 +72,24 @@
     Ani.sub('dom.page.render', function(evt, data) {
         var el = data && data.el;
         var tpl = data && data.tpl;
+        var partialArray = data && data.partial;
+        var partialData = {};
         var bodyTpl = document.getElementById(tpl);
         var data = data && data.data;
         if(!el) {
             el = document.getElementById("page-wrap");
         }
         if(bodyTpl && data) {
-            el.innerHTML = Mustache.render(bodyTpl.innerHTML, data);
+            if(partialArray && partialArray.length) {
+                partialArray.forEach(function(partialId, index, partials) {
+                    var partialTplEl = document.getElementById(partialId);
+                    if(partialTplEl) {
+                        partialData[partialId] = partialTplEl.innerHTML;
+                    }
+                });
+            }
+            el.innerHTML = Mustache.render(bodyTpl.innerHTML.replace(/{{&gt;/g, "{{>"), data, partialData);
         }
-
     });
 
 })(window);
