@@ -35,6 +35,10 @@
 
     page('/demo');
 
+    window.onpopstate = function(e) {
+        page.replace(e.state.path)
+    }
+
     Ani.sub('page.show', function(event, el) {
         var gotoPage = el.getAttribute('page');
         if(gotoPage) {

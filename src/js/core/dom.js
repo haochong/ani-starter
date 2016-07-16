@@ -105,8 +105,6 @@
                     transitionEl.classList.remove('transition');
 
                 }, 150);
-            } else {
-
             }
         }
     });
