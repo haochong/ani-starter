@@ -72,10 +72,19 @@
     Ani.sub('dom.page.render', function(evt, data) {
         var el = data && data.el;
         var tpl = data && data.tpl;
+        var transitionClass = data && data.transitionClass;
         var partialArray = data && data.partial;
         var partialData = {};
         var bodyTpl = document.getElementById(tpl);
         var data = data && data.data;
+        var transitionEl = null;
+        var renderPage = function() {
+            el.innerHTML = Mustache.render(bodyTpl.innerHTML.replace(/{{&gt;/g, "{{>"), data, partialData);
+        }
+
+        if(!transitionClass) {
+            transitionClass = '.need-page-transition';
+        }
         if(!el) {
             el = document.getElementById("page-wrap");
         }
@@ -88,7 +97,17 @@
                     }
                 });
             }
-            el.innerHTML = Mustache.render(bodyTpl.innerHTML.replace(/{{&gt;/g, "{{>"), data, partialData);
+            renderPage();
+            transitionEl = el.querySelector(transitionClass);
+            if(transitionEl) {
+                transitionEl.classList.add('transition');
+                setTimeout(function(){
+                    transitionEl.classList.remove('transition');
+
+                }, 150);
+            } else {
+
+            }
         }
     });
 
