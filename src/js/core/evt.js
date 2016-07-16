@@ -22,7 +22,9 @@
                 el: el,
                 selector: '.evt',
                 callback: function(_el) {
-                    triggerEvt(_el);
+                    if(_el) {
+                        triggerEvt(_el);
+                    }
                 }
             });
 
