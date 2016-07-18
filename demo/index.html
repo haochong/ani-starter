@@ -26,9 +26,11 @@
 
 <div id="list-page-tpl" style="display:none;">
     <div class="list-page need-page-transition">
-        <ul>
+        <ul class="b-lazy-wrap">
         {{#list}}
-        <li>{{.}}</li>
+        <li>
+            <img style="min-height:200px" class="b-lazy" data-src="{{img}}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
+        </li>
         {{/list}}
         </ul>
     </div>
@@ -45,4 +47,5 @@
 
 </body>
 <script src="../dist/js/core_dev.js"></script>
+<script src="../dist/js/plugin.js"></script>
 </html>

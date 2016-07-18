@@ -80,6 +80,7 @@
         var transitionEl = null;
         var renderPage = function() {
             el.innerHTML = Mustache.render(bodyTpl.innerHTML.replace(/{{&gt;/g, "{{>"), data, partialData);
+            Ani.pub('page.ready');
         }
 
         if(!transitionClass) {

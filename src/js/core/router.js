@@ -15,17 +15,20 @@
     });
 
     page('/demo/list', function() {
-        Ani.pub('dom.page.render', {
-            tpl: 'list-page-tpl',
-            partial: ['footer-tpl'],
-            data: {
-                list: [
-                    'list item 1',
-                    'list item 2',
-                    'list item 3'
-                ]
+
+        Ani.pub("ajax", {
+            url: '/api/blazytest',
+            type: 'GET',
+            callback: function(resp) {
+                Ani.pub('dom.page.render', {
+                    tpl: 'list-page-tpl',
+                    partial: ['footer-tpl'],
+                    data: resp.data
+                });
             }
         });
+
+
     });
 
     page('/demo/profile', function() {
@@ -38,7 +41,7 @@
         });
     });
 
-    page('/demo');
+    page('/demo/list');
 
     window.onpopstate = function(e) {
         page.replace(e.state.path)

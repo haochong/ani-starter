@@ -26,6 +26,7 @@
     "gulp-stylus": "^2.5.0"
   },
   "dependencies": {
+    "blazy": "^1.6.2",
     "mustache": "^2.2.1",
     "page": "^1.7.1"
   }

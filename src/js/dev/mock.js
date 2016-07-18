@@ -11,6 +11,46 @@
                     test: 'cool'
                 }
             }
+        },
+        {
+            pattern: /api\/blazytest/,
+            data: {
+                err_code: 0,
+                data: {
+                    list: [
+                        {
+                            img: 'http://dinbror.dk/blazy/assets/bears/big-bear1.jpg'
+                        },
+                        {
+                            img: 'http://dinbror.dk/blazy/assets/bears/big-bear2.jpg'
+                        },
+                        {
+                            img: 'http://dinbror.dk/blazy/assets/bears/big-bear3.jpg'
+                        },
+                        {
+                            img: 'http://dinbror.dk/blazy/assets/bears/big-bear4.jpg'
+                        },
+                        {
+                            img: 'http://dinbror.dk/blazy/assets/bears/big-bear5.jpg'
+                        },
+                        {
+                            img: 'http://dinbror.dk/blazy/assets/bears/big-bear6.jpg'
+                        },
+                        {
+                            img: 'http://dinbror.dk/blazy/assets/bears/big-bear7.jpg'
+                        },
+                        {
+                            img: 'http://dinbror.dk/blazy/assets/bears/big-bear3.jpg'
+                        },
+                        {
+                            img: 'http://dinbror.dk/blazy/assets/bears/big-bear4.jpg'
+                        },
+                        {
+                            img: 'http://dinbror.dk/blazy/assets/bears/big-bear5.jpg'
+                        }
+                    ]
+                }
+            }
         }
     ];
 

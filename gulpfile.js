@@ -55,6 +55,18 @@ gulp.task('js_core_dev', function() {
 });
 
 
+gulp.task('js_plugin', function() {
+    var jsArray = [
+        './node_modules/blazy/blazy.min.js',
+        './src/js/plugin/blazy_init.js'
+    ];
+
+    return gulp.src(jsArray)
+        .pipe(concat('plugin.js'))
+        .pipe(gulp.dest('./dist/js'));
+});
+
+
 gulp.task('watch', function () {
     gulp.watch('./src/js/core/**/*.js', ['js_core', 'js_core_dev']);
     gulp.watch('./src/css/core/**/*.styl', ['css_core']);
@@ -63,6 +75,7 @@ gulp.task('watch', function () {
 gulp.task('build', ['clean'], function () {
     gulp.start('js_core');
     gulp.start('js_core_dev');
+    gulp.start('js_plugin');
     gulp.start('css_core');
 });
 
