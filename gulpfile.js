@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var del = require('del');
 var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
 var stylus = require('gulp-stylus');
 
 gulp.task('clean', function () {
@@ -30,6 +31,7 @@ gulp.task('js_core', function() {
     ];
 
     return gulp.src(jsArray)
+        .pipe(uglify())
         .pipe(concat('core.js'))
         .pipe(gulp.dest('./dist/js'));
 });
