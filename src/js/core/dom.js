@@ -78,6 +78,7 @@
         var bodyTpl = document.getElementById(tpl);
         var data = data && data.data;
         var transitionEl = null;
+        var transitionTime = 150;
         var renderPage = function() {
             el.innerHTML = Mustache.render(bodyTpl.innerHTML.replace(/{{&gt;/g, "{{>"), data, partialData);
 
@@ -105,8 +106,10 @@
                 transitionEl.classList.add('transition');
                 setTimeout(function(){
                     transitionEl.classList.remove('transition');
-                    Ani.pub('page.ready');
-                }, 150);
+                    setTimeout(function() {
+                        Ani.pub('page.ready');
+                    }, transitionTime);
+                }, transitionTime);
             }  else {
                 Ani.pub('page.ready');
             }

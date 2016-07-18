@@ -59,7 +59,7 @@ gulp.task('js_core_dev', function() {
 
 gulp.task('js_plugin', function() {
     var jsArray = [
-        './node_modules/blazy/blazy.min.js',
+        './node_modules/blazy/blazy.js',
         './src/js/plugin/blazy_init.js'
     ];
 
