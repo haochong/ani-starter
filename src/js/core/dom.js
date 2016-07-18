@@ -80,7 +80,7 @@
         var transitionEl = null;
         var renderPage = function() {
             el.innerHTML = Mustache.render(bodyTpl.innerHTML.replace(/{{&gt;/g, "{{>"), data, partialData);
-            Ani.pub('page.ready');
+
         }
 
         if(!transitionClass) {
@@ -98,14 +98,17 @@
                     }
                 });
             }
+
             renderPage();
             transitionEl = el.querySelector(transitionClass);
             if(transitionEl) {
                 transitionEl.classList.add('transition');
                 setTimeout(function(){
                     transitionEl.classList.remove('transition');
-
+                    Ani.pub('page.ready');
                 }, 150);
+            }  else {
+                Ani.pub('page.ready');
             }
         }
     });
