@@ -7,7 +7,8 @@
            tpl: 'home-page-tpl',
             partial: ['footer-tpl'],
             data: {
-                name: 'test me'
+                name: 'test me',
+                list: ['list0item', 'list1item', 'list3item']
             }
         });
 
@@ -15,10 +16,14 @@
 
     page('/demo/list', function() {
         Ani.pub('dom.page.render', {
-            tpl: 'home-page-tpl',
+            tpl: 'list-page-tpl',
             partial: ['footer-tpl'],
             data: {
-                name: 'this is list page'
+                list: [
+                    'list item 1',
+                    'list item 2',
+                    'list item 3'
+                ]
             }
         });
     });

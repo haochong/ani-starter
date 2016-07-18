@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
     <title>Ani Starter</title>
     <link rel="stylesheet" href="../dist/css/core.css">
@@ -15,13 +16,30 @@
 </div>
 
 <div id="home-page-tpl" style="display:none;">
-    <div class="home-page need-page-transition">{{name}}</div>
+    <div class="home-page need-page-transition">
+        {{name}}
+        {{list.0}}
+        {{list.1}}
+    </div>
     {{> footer-tpl}}
 </div>
+
+<div id="list-page-tpl" style="display:none;">
+    <div class="list-page need-page-transition">
+        <ul>
+        {{#list}}
+        <li>{{.}}</li>
+        {{/list}}
+        </ul>
+    </div>
+    {{> footer-tpl}}
+</div>
+
 <div id="footer-tpl" style="display:none;">
     <div class="footer-wrap">
-        <a class="evt" evt="page.show" page="/demo/list">List page</a>
-        <a class="evt" evt="page.show" page="/demo/profile">Profile page</a>
+        <a class="evt" evt="page.show" page="/demo/list">Home</a>
+        <a class="evt" evt="page.show" page="/demo/list">List</a>
+        <a class="evt" evt="page.show" page="/demo/profile">Profile</a>
     </div>
 </div>
 
