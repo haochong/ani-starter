@@ -48,6 +48,7 @@ gulp.task('js_core_dev', function() {
         './node_modules/mustache/mustache.min.js',
         './node_modules/page/page.js',
         './src/js/core/router.js',
+        './src/js/dev/router_demo.js',
         './src/js/core/ready.js'
     ];
 

@@ -51,9 +51,11 @@
 
 <div id="header-tpl" style="display:none;">
     <div class="header-wrap">
-        {{#hasBack}}
-        <a class="evt back-btn" evt="page.back" href="javascript:;">&lt;</a>
-        {{/hasBack}}
+        <div class="header-left-wrap">
+            {{#hasBack}}
+            <a class="evt back-btn" evt="page.back" href="javascript:;">&lt;</a>
+            {{/hasBack}}
+        </div>
         <span class="header-title">{{title}}</span>
     </div>
 </div>
