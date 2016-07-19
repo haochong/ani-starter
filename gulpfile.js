@@ -3,6 +3,7 @@ var del = require('del');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var stylus = require('gulp-stylus');
+var replace = require('gulp-replace');
 
 gulp.task('clean', function () {
     return del([
@@ -29,11 +30,16 @@ gulp.task('js_core', function() {
         './src/js/core/router.js',
         './src/js/core/ready.js'
     ];
+    var fileName = 'core-'+ +new Date() +'.js';
 
-    return gulp.src(jsArray)
+    gulp.src(jsArray)
         .pipe(uglify())
-        .pipe(concat('core.js'))
+        .pipe(concat(fileName))
         .pipe(gulp.dest('./dist/js'));
+
+    return gulp.src('demo/index.html', { base: './' })
+        .pipe(replace(/<script id=\"core-script\".*><\/script>/g, '<script id="core-script" src="/dist/js/' + fileName + '"></script>'))
+        .pipe(gulp.dest('./'));
 });
 
 gulp.task('js_core_dev', function() {
@@ -57,16 +63,32 @@ gulp.task('js_core_dev', function() {
         .pipe(gulp.dest('./dist/js'));
 });
 
-
-gulp.task('js_plugin', function() {
+gulp.task('js_plugin_dev', function() {
     var jsArray = [
         './node_modules/blazy/blazy.js',
         './src/js/plugin/blazy_init.js'
     ];
 
     return gulp.src(jsArray)
-        .pipe(concat('plugin.js'))
+        .pipe(concat('plugin_dev.js'))
         .pipe(gulp.dest('./dist/js'));
+
+});
+
+gulp.task('js_plugin', function() {
+    var jsArray = [
+        './node_modules/blazy/blazy.js',
+        './src/js/plugin/blazy_init.js'
+    ];
+    var fileName = 'plugin-'+ +new Date() +'.js';
+
+    gulp.src(jsArray)
+        .pipe(concat(fileName))
+        .pipe(gulp.dest('./dist/js'));
+
+    return gulp.src('demo/index.html', { base: './' })
+        .pipe(replace(/<script id=\"plugin-script\".*><\/script>/g, '<script id="plugin-script" src="/dist/js/' + fileName + '"></script>'))
+        .pipe(gulp.dest('./'));
 });
 
 
@@ -79,6 +101,7 @@ gulp.task('build', ['clean'], function () {
     gulp.start('js_core');
     gulp.start('js_core_dev');
     gulp.start('js_plugin');
+    gulp.start('js_plugin_dev');
     gulp.start('css_core');
 });
 
