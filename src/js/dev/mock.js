@@ -19,34 +19,44 @@
                 data: {
                     list: [
                         {
-                            img: 'http://dinbror.dk/blazy/assets/bears/big-bear1.jpg'
+                            img: 'http://dinbror.dk/blazy/assets/bears/big-bear1.jpg',
+                            id: 1
                         },
                         {
-                            img: 'http://dinbror.dk/blazy/assets/bears/big-bear2.jpg'
+                            img: 'http://dinbror.dk/blazy/assets/bears/big-bear2.jpg',
+                            id: 2
                         },
                         {
-                            img: 'http://dinbror.dk/blazy/assets/bears/big-bear3.jpg'
+                            img: 'http://dinbror.dk/blazy/assets/bears/big-bear3.jpg',
+                            id: 3
                         },
                         {
-                            img: 'http://dinbror.dk/blazy/assets/bears/big-bear4.jpg'
+                            img: 'http://dinbror.dk/blazy/assets/bears/big-bear4.jpg',
+                            id: 4
                         },
                         {
-                            img: 'http://dinbror.dk/blazy/assets/bears/big-bear5.jpg'
+                            img: 'http://dinbror.dk/blazy/assets/bears/big-bear5.jpg',
+                            id: 5
                         },
                         {
-                            img: 'http://dinbror.dk/blazy/assets/bears/big-bear6.jpg'
+                            img: 'http://dinbror.dk/blazy/assets/bears/big-bear6.jpg',
+                            id: 6
                         },
                         {
-                            img: 'http://dinbror.dk/blazy/assets/bears/big-bear7.jpg'
+                            img: 'http://dinbror.dk/blazy/assets/bears/big-bear7.jpg',
+                            id: 7
                         },
                         {
-                            img: 'http://dinbror.dk/blazy/assets/bears/big-bear3.jpg'
+                            img: 'http://dinbror.dk/blazy/assets/bears/big-bear3.jpg',
+                            id: 8
                         },
                         {
-                            img: 'http://dinbror.dk/blazy/assets/bears/big-bear4.jpg'
+                            img: 'http://dinbror.dk/blazy/assets/bears/big-bear4.jpg',
+                            id: 9
                         },
                         {
-                            img: 'http://dinbror.dk/blazy/assets/bears/big-bear5.jpg'
+                            img: 'http://dinbror.dk/blazy/assets/bears/big-bear5.jpg',
+                            id: 10
                         }
                     ]
                 }

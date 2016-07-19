@@ -80,8 +80,15 @@
         var transitionEl = null;
         var transitionTime = 150;
         var renderPage = function() {
+            el.setAttribute('lastScrollTop', document.body.scrollTop);
             el.innerHTML = Mustache.render(bodyTpl.innerHTML.replace(/{{&gt;/g, "{{>"), data, partialData);
-
+        }
+        var pageReady = function() {
+            var currentScrollTop = document.body.getAttribute('currentScrollTop');
+            if(currentScrollTop) {
+                document.body.scrollTop = currentScrollTop;
+            }
+            Ani.pub('page.ready');
         }
 
         if(!transitionClass) {
@@ -107,11 +114,11 @@
                 setTimeout(function(){
                     transitionEl.classList.remove('transition');
                     setTimeout(function() {
-                        Ani.pub('page.ready');
+                        pageReady();
                     }, transitionTime);
                 }, transitionTime);
             }  else {
-                Ani.pub('page.ready');
+                pageReady();
             }
         }
     });

@@ -16,6 +16,7 @@
 </div>
 
 <div id="home-page-tpl" style="display:none;">
+    {{> header-tpl}}
     <div class="home-page need-page-transition">
         {{name}}
         {{list.0}}
@@ -25,16 +26,36 @@
 </div>
 
 <div id="list-page-tpl" style="display:none;">
+    {{> header-tpl}}
     <div class="list-page need-page-transition">
         <ul class="b-lazy-wrap">
         {{#list}}
         <li>
-            <img style="min-height:200px" class="b-lazy" data-src="{{img}}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
+            <a evt="page.show" page="/demo/show/{{id}}" href="javascript:;" class="evt">
+                <img style="min-height:200px" class="b-lazy" data-src="{{img}}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
+            </a>
         </li>
         {{/list}}
         </ul>
     </div>
     {{> footer-tpl}}
+</div>
+
+<div id="show-page-tpl" style="display:none;">
+    {{> header-tpl}}
+    <div class="show-page need-page-transition">
+       show page {{id}}
+    </div>
+    {{> footer-tpl}}
+</div>
+
+<div id="header-tpl" style="display:none;">
+    <div class="header-wrap">
+        {{#hasBack}}
+        <a class="evt back-btn" evt="page.back" href="javascript:;">&lt;</a>
+        {{/hasBack}}
+        <span class="header-title">{{title}}</span>
+    </div>
 </div>
 
 <div id="footer-tpl" style="display:none;">
