@@ -69,7 +69,10 @@ gulp.task('js_plugin_dev', function() {
     var jsArray = [
         './node_modules/blazy/blazy.js',
         './src/js/plugin/blazy_init.js',
-        './src/js/plugin/smoke/smoke.js'
+        './src/js/plugin/smoke/smoke.js',
+        './src/js/plugin/peppermint/eventburrito.js',
+        './src/js/plugin/peppermint/peppermint.js',
+        './src/js/plugin/peppermint/peppermint_init.js'
     ];
 
     return gulp.src(jsArray)
@@ -82,7 +85,9 @@ gulp.task('js_plugin', function() {
     var jsArray = [
         './node_modules/blazy/blazy.js',
         './src/js/plugin/blazy_init.js',
-        './src/js/plugin/smoke/smoke.js'
+        './src/js/plugin/smoke/smoke.js',
+        './src/js/plugin/peppermint/peppermint.min.js',
+        './src/js/plugin/peppermint/peppermint_init.js'
     ];
     var fileName = 'plugin-'+ +new Date() +'.js';
 

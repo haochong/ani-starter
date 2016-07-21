@@ -7,6 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
     <title>Ani Starter</title>
     <link rel="stylesheet" href="/dist/css/core.css">
+    <style>
+        .peppermint {
+            overflow: hidden;
+            width: 100%;
+            height: 200px;
+            background-color: #ccc;
+        }
+        .peppermint-slides {
+            padding: 0;
+        }
+        .peppermint img {
+            float: left;
+        }
+    </style>
 </head>
 <body>
 <div id="page-wrap">
@@ -18,6 +32,11 @@
 <div id="home-page-tpl" style="display:none;">
     {{> header-tpl}}
     <div class="home-page need-page-transition">
+        <div class="peppermint peppermint-inactive" id="peppermint">
+            <img src="https://i.ytimg.com/vi/fSE00NLiYls/maxresdefault.jpg" alt="">
+            <img src="http://www.kemecer.com/i/cute-cat-wallpapers-kitten-wallpaper-phone.jpg" alt="">
+        </div>
+
         <h3>signal demo</h3>
         <a evt="ui.signal" msg="hello there~" class="evt" href="javascript:;">click to show signal</a>
     </div>
