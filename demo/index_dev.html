@@ -18,9 +18,8 @@
 <div id="home-page-tpl" style="display:none;">
     {{> header-tpl}}
     <div class="home-page need-page-transition">
-        {{name}}
-        {{list.0}}
-        {{list.1}}
+        <h3>signal demo</h3>
+        <a evt="ui.signal" msg="hello there~" class="evt" href="javascript:;">click to show signal</a>
     </div>
     {{> footer-tpl}}
 </div>
@@ -62,7 +61,7 @@
 
 <div id="footer-tpl" style="display:none;">
     <div class="footer-wrap">
-        <a class="evt" evt="page.show" page="/demo/list">Home</a>
+        <a class="evt" evt="page.show" page="/demo">Home</a>
         <a class="evt" evt="page.show" page="/demo/list">List</a>
         <a class="evt" evt="page.show" page="/demo/profile">Profile</a>
     </div>

@@ -32,6 +32,29 @@
             triggerEvt(el);
         }
     }
+    var preventDefault = function(e) {
+        var el = e.target;
+        var evt = '';
+        var willPrevent = false;
+        if (!el.classList.contains('evt')) {
+            Ani.pub('dom.closest', {
+                el: el,
+                selector: '.evt',
+                callback: function(_el) {
+                    if(_el) {
+                        willPrevent = true;
+                    }
+                }
+            });
+
+        } else {
+            willPrevent = true;
+        }
+
+        if(willPrevent) {
+            e.preventDefault();
+        }
+    }
 
     if (('addEventListener' in document) && ('querySelectorAll' in document) && (('ontouchstart' in window) || ('onmsgesturechange' in window))) {
 
@@ -68,7 +91,7 @@
             window.addEventListener(e,function(e) {
                 // here we can consider finished the touch event
                 touchStarted = false;
-                e.preventDefault();
+                preventDefault(e);
                 // touchended
             },false);
         });

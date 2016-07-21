@@ -24,6 +24,7 @@ gulp.task('js_core', function() {
         './src/js/core/require.js',
         './src/js/core/dom.js',
         './src/js/core/evt.js',
+        './src/js/core/ui.js',
         './src/js/core/ajax.js',
         './node_modules/mustache/mustache.min.js',
         './node_modules/page/page.js',
@@ -50,6 +51,7 @@ gulp.task('js_core_dev', function() {
         './src/js/core/dom.js',
         './src/js/core/evt.js',
         './src/js/dev/mock.js',
+        './src/js/core/ui.js',
         './src/js/core/ajax.js',
         './node_modules/mustache/mustache.min.js',
         './node_modules/page/page.js',
@@ -66,7 +68,8 @@ gulp.task('js_core_dev', function() {
 gulp.task('js_plugin_dev', function() {
     var jsArray = [
         './node_modules/blazy/blazy.js',
-        './src/js/plugin/blazy_init.js'
+        './src/js/plugin/blazy_init.js',
+        './src/js/plugin/smoke/smoke.js'
     ];
 
     return gulp.src(jsArray)
@@ -78,7 +81,8 @@ gulp.task('js_plugin_dev', function() {
 gulp.task('js_plugin', function() {
     var jsArray = [
         './node_modules/blazy/blazy.js',
-        './src/js/plugin/blazy_init.js'
+        './src/js/plugin/blazy_init.js',
+        './src/js/plugin/smoke/smoke.js'
     ];
     var fileName = 'plugin-'+ +new Date() +'.js';
 
