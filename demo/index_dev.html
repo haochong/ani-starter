@@ -39,10 +39,16 @@
 
         <h3>signal demo</h3>
         <a evt="ui.signal" msg="hello there~" class="evt" href="javascript:;">click to show signal</a>
+        <h3>test cases</h3>
+        <a href="javascript:;" evt="test.duplicate.page.rendering" class="evt">duplicate page rendering</a>
+        <div class="test-duplicate-page-rendering"></div>
     </div>
     {{> footer-tpl}}
 </div>
 
+<div id="test-duplicate-page-render-tpl" style="display:none;">
+    <div class="need-page-transition">{{msg}}</div>
+</div>
 <div id="list-page-tpl" style="display:none;">
     {{> header-tpl}}
     <div class="list-page need-page-transition">

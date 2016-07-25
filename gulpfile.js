@@ -57,6 +57,7 @@ gulp.task('js_core_dev', function() {
         './node_modules/page/page.js',
         './src/js/core/router.js',
         './src/js/dev/router_demo.js',
+        './src/js/dev/test_case.js',
         './src/js/core/ready.js'
     ];
 

@@ -82,6 +82,8 @@
         var renderPage = function() {
             el.setAttribute('lastScrollTop', document.body.scrollTop);
             el.innerHTML = Mustache.render(bodyTpl.innerHTML.replace(/{{&gt;/g, "{{>"), data, partialData);
+            el.setAttribute('rendering', false);
+            Ani.pub("page.rendered.success");
         }
         var pageReady = function() {
             var currentScrollTop = document.body.getAttribute('currentScrollTop');
@@ -91,13 +93,15 @@
             Ani.pub('page.ready');
         }
 
-        if(!transitionClass) {
-            transitionClass = '.need-page-transition';
-        }
         if(!el) {
             el = document.getElementById("page-wrap");
         }
-        if(bodyTpl && data) {
+        if(!el.getAttribute('rendering') && bodyTpl && data) {
+            el.setAttribute('rendering', true);
+            if(!transitionClass) {
+                transitionClass = '.need-page-transition';
+            }
+
             if(partialArray && partialArray.length) {
                 partialArray.forEach(function(partialId, index, partials) {
                     var partialTplEl = document.getElementById(partialId);
@@ -120,7 +124,10 @@
             }  else {
                 pageReady();
             }
+
         }
+
+
     });
 
 })(window);
