@@ -11,6 +11,9 @@
                 list: ['list0item', 'list1item', 'list3item']
             }
         });
+        Ani.sub('page.ready', function() {
+            Ani.pub('test.duplicate.page.rendering');
+        });
 
     });
 
