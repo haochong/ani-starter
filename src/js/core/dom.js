@@ -2,6 +2,8 @@
 
     'use strict';
 
+    Ani.cache = {};
+
     var getClosest = function (elem, selector) {
 
         var firstChar = selector.charAt(0);
@@ -75,13 +77,14 @@
         var transitionClass = data && data.transitionClass;
         var partialArray = data && data.partial;
         var partialData = {};
-        var bodyTpl = document.getElementById(tpl);
+        var tplHtml;
         var data = data && data.data;
         var transitionEl = null;
         var transitionTime = 150;
         var renderPage = function() {
+            var renderHtml = Ani.cache[tpl];
             el.setAttribute('lastScrollTop', document.body.scrollTop);
-            el.innerHTML = Mustache.render(bodyTpl.innerHTML.replace(/{{&gt;/g, "{{>"), data, partialData);
+            el.innerHTML = Mustache.render(renderHtml.replace(/{{&gt;/g, "{{>"), data, partialData);
         }
         var pageReady = function() {
             var currentScrollTop = document.body.getAttribute('currentScrollTop');
@@ -92,10 +95,24 @@
             el.setAttribute('rendering', 'false');
         }
 
+        var getCacheTpl = function(tpl) {
+            var bodyTpl = document.getElementById(tpl);
+            if(!Ani.cache[tpl]) {
+                if(bodyTpl) {
+                    Ani.cache[tpl] = bodyTpl.innerHTML;
+                    bodyTpl.parentNode.removeChild(bodyTpl);
+                }
+            }
+            return Ani.cache[tpl];
+        };
+
         if(!el) {
             el = document.getElementById("page-wrap");
         }
-        if((el.getAttribute('rendering') !== 'true') && bodyTpl && data) {
+
+        tplHtml = getCacheTpl(tpl);
+
+        if((el.getAttribute('rendering') !== 'true') && tplHtml && data) {
             el.setAttribute('rendering', 'true');
             if(!transitionClass) {
                 transitionClass = '.need-page-transition';
@@ -103,10 +120,7 @@
 
             if(partialArray && partialArray.length) {
                 partialArray.forEach(function(partialId, index, partials) {
-                    var partialTplEl = document.getElementById(partialId);
-                    if(partialTplEl) {
-                        partialData[partialId] = partialTplEl.innerHTML;
-                    }
+                    partialData[partialId] = getCacheTpl(partialId);
                 });
             }
 
@@ -124,6 +138,8 @@
                 pageReady();
             }
 
+        } else {
+            Ani.pub('duplicate page rendering or empty bodyTpl/data');
         }
 
 
