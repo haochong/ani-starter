@@ -11,8 +11,39 @@
                 list: ['list0item', 'list1item', 'list3item']
             }
         });
-        Ani.sub('page.ready', function() {
-            Ani.pub('test.duplicate.page.rendering');
+        Ani.sub('page.ready', function(data) {
+            console.log(data);
+            //Ani.pub('test.duplicate.page.rendering');
+        });
+
+    });
+
+    page('/demo/test', function() {
+
+        Ani.pub('dom.page.render', {
+            tpl: 'test-page-tpl',
+            partial: ['footer-tpl', 'header-tpl'],
+            data: {
+                testcases: [
+                    {
+                        msg: 'duplicate.page.rendering success',
+                        status: 'success'
+                    }
+                ]
+            }
+        });
+
+        Ani.pub('dom.page.render', {
+            tpl: 'test-page-tpl',
+            partial: ['footer-tpl', 'header-tpl'],
+            data: {
+                testcases: [
+                    {
+                        msg: 'duplicate.page.rendering fail',
+                        status: 'fail'
+                    }
+                ]
+            }
         });
 
     });

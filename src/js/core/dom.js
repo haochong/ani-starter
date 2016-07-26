@@ -82,22 +82,21 @@
         var renderPage = function() {
             el.setAttribute('lastScrollTop', document.body.scrollTop);
             el.innerHTML = Mustache.render(bodyTpl.innerHTML.replace(/{{&gt;/g, "{{>"), data, partialData);
-            el.setAttribute('rendering', false);
-            Ani.pub("page.rendered.success");
         }
         var pageReady = function() {
             var currentScrollTop = document.body.getAttribute('currentScrollTop');
             if(currentScrollTop) {
                 document.body.scrollTop = currentScrollTop;
             }
-            Ani.pub('page.ready');
+            Ani.pub('page.ready', data);
+            el.setAttribute('rendering', 'false');
         }
 
         if(!el) {
             el = document.getElementById("page-wrap");
         }
-        if(!el.getAttribute('rendering') && bodyTpl && data) {
-            el.setAttribute('rendering', true);
+        if((el.getAttribute('rendering') !== 'true') && bodyTpl && data) {
+            el.setAttribute('rendering', 'true');
             if(!transitionClass) {
                 transitionClass = '.need-page-transition';
             }

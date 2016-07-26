@@ -6,10 +6,6 @@ function handleRequest(request, response){
 
     var file = './demo/index.html';
 
-    console.log(request.headers.host.indexOf('localhost'));
-    if(request.headers.host.indexOf('localhost') > -1) {
-        file = './demo/index_dev.html';
-    }
     if(request.url.indexOf('/dist/') > -1) {
         file = './'+request.url;
     }
@@ -35,7 +31,6 @@ function handleRequest(request, response){
         }
     });
 
-    //response.end('It Works!! Path Hit: ' + request.url);
 }
 
 var server = http.createServer(handleRequest);

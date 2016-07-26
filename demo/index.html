@@ -29,64 +29,88 @@
     </div>
 </div>
 
-<div id="home-page-tpl" style="display:none;">
-    {{> header-tpl}}
-    <div class="home-page need-page-transition">
 
-        <div class="peppermint peppermint-inactive" id="peppermint">
-            <img src="https://i.ytimg.com/vi/fSE00NLiYls/maxresdefault.jpg" alt="">
-            <img src="http://www.kemecer.com/i/cute-cat-wallpapers-kitten-wallpaper-phone.jpg" alt="">
+<div class="tpls" style="display:none;">
+    <div id="home-page-tpl">
+        {{> header-tpl}}
+        <div class="home-page need-page-transition">
+            <div class="peppermint peppermint-inactive" id="peppermint">
+                <img src="https://i.ytimg.com/vi/fSE00NLiYls/maxresdefault.jpg" alt="">
+                <img src="http://www.kemecer.com/i/cute-cat-wallpapers-kitten-wallpaper-phone.jpg" alt="">
+            </div>
+
+            <h3>signal demo</h3>
+            <a evt="ui.signal" msg="hello there~" class="evt" href="javascript:;">click to show signal</a>
+            <h3>
+                <a evt="page.show" page="/demo/test" href="javascript:;" class="evt">test cases</a>
+            </h3>
         </div>
-        <h3>signal demo</h3>
-        <a evt="ui.signal" msg="hello there~" class="evt" href="javascript:;">click to show signal</a>
+        {{> footer-tpl}}
     </div>
-    {{> footer-tpl}}
-</div>
 
-<div id="list-page-tpl" style="display:none;">
-    {{> header-tpl}}
-    <div class="list-page need-page-transition">
-        <ul class="b-lazy-wrap">
-        {{#list}}
-        <li>
-            <a evt="page.show" page="/demo/show/{{id}}" href="javascript:;" class="evt">
-                <img style="min-height:200px" class="b-lazy" data-src="{{img}}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
-            </a>
-        </li>
-        {{/list}}
-        </ul>
-    </div>
-    {{> footer-tpl}}
-</div>
-
-<div id="show-page-tpl" style="display:none;">
-    {{> header-tpl}}
-    <div class="show-page need-page-transition">
-       show page {{id}}
-    </div>
-    {{> footer-tpl}}
-</div>
-
-<div id="header-tpl" style="display:none;">
-    <div class="header-wrap">
-        <div class="header-left-wrap">
-            {{#hasBack}}
-            <a class="evt back-btn" evt="page.back" href="javascript:;">&lt;</a>
-            {{/hasBack}}
+    <div id="test-page-tpl">
+        <style>.success { color:#00FF00; } .fail { color:#FF0000;} </style>
+        {{> header-tpl}}
+        <div class="test-page need-page-transition">
+            {{#testcases}}
+            <div class="{{status}}">{{msg}}</div>
+            {{/testcases}}
         </div>
-        <span class="header-title">{{title}}</span>
+        {{> footer-tpl}}
+    </div>
+
+    <div id="test-duplicate-page-render-tpl">
+        <div class="need-page-transition">duplicate page rendering {{msg}}</div>
+    </div>
+
+    <div id="list-page-tpl">
+        {{> header-tpl}}
+        <div class="list-page need-page-transition">
+            <ul class="b-lazy-wrap">
+                {{#list}}
+                <li>
+                    <a evt="page.show" page="/demo/show/{{id}}" href="javascript:;" class="evt">
+                        <img style="min-height:200px" class="b-lazy" data-src="{{img}}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
+                    </a>
+                </li>
+                {{/list}}
+            </ul>
+        </div>
+        {{> footer-tpl}}
+    </div>
+
+    <div id="show-page-tpl">
+        {{> header-tpl}}
+        <div class="show-page need-page-transition">
+            show page {{id}}
+        </div>
+        {{> footer-tpl}}
+    </div>
+
+    <div id="header-tpl">
+        <div class="header-wrap">
+            <div class="header-left-wrap">
+                {{#hasBack}}
+                <a class="evt back-btn" evt="page.back" href="javascript:;">&lt;</a>
+                {{/hasBack}}
+            </div>
+            <span class="header-title">{{title}}</span>
+        </div>
+    </div>
+
+    <div id="footer-tpl">
+        <div class="footer-wrap">
+            <a class="evt" evt="page.show" page="/demo">Home</a>
+            <a class="evt" evt="page.show" page="/demo/list">List</a>
+            <a class="evt" evt="page.show" page="/demo/profile">Profile</a>
+        </div>
     </div>
 </div>
 
-<div id="footer-tpl" style="display:none;">
-    <div class="footer-wrap">
-        <a class="evt" evt="page.show" page="/demo">Home</a>
-        <a class="evt" evt="page.show" page="/demo/list">List</a>
-        <a class="evt" evt="page.show" page="/demo/profile">Profile</a>
-    </div>
-</div>
 
-</body>
-<script id="core-script" src="/dist/js/core-1469440747654.js"></script>
-<script id="plugin-script" src="/dist/js/plugin-1469440618972.js"></script>
-</html>
+
+
+
+
+<script id="core-script" src="/dist/js/core_dev.js"></script>
+<script id="plugin-script" src="/dist/js/plugin_dev.js"></script>

@@ -38,7 +38,7 @@ gulp.task('js_core', function() {
         .pipe(concat(fileName))
         .pipe(gulp.dest('./dist/js'));
 
-    return gulp.src('demo/index.html', { base: './' })
+    return gulp.src('demo/inc/footer.html', { base: './' })
         .pipe(replace(/<script id=\"core-script\".*><\/script>/g, '<script id="core-script" src="/dist/js/' + fileName + '"></script>'))
         .pipe(gulp.dest('./'));
 });
@@ -96,7 +96,7 @@ gulp.task('js_plugin', function() {
         .pipe(concat(fileName))
         .pipe(gulp.dest('./dist/js'));
 
-    return gulp.src('demo/index.html', { base: './' })
+    return gulp.src('demo/inc/footer.html', { base: './' })
         .pipe(replace(/<script id=\"plugin-script\".*><\/script>/g, '<script id="plugin-script" src="/dist/js/' + fileName + '"></script>'))
         .pipe(gulp.dest('./'));
 });

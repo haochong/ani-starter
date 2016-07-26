@@ -5,7 +5,6 @@
     Ani.sub("test.duplicate.page.rendering", function() {
         var el = document.querySelector('.test-duplicate-page-rendering');
         Ani.pub('dom.page.render', {
-            el: el,
             tpl: 'test-duplicate-page-render-tpl',
             partial: ['footer-tpl', 'header-tpl'],
             data: {
@@ -13,7 +12,6 @@
             }
         });
         Ani.pub('dom.page.render', {
-            el: el,
             tpl: 'test-duplicate-page-render-tpl',
             partial: ['footer-tpl', 'header-tpl'],
             data: {

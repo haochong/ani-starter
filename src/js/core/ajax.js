@@ -15,11 +15,13 @@
                 // Success!
                 var resp = request.responseText;
                 callback && callback(resp);
+                Ani.pub('ajax.success');
             } else {
                 callback && callback({
                     err_code: 1001,
                     data: {}
                 });
+                Ani.pub('ajax.error');
                 // We reached our target server, but it returned an error
             }
         };
