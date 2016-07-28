@@ -6,8 +6,13 @@
         var url = conf && conf.url;
         var type = conf && conf.type;
         var callback = conf && conf.callback;
+        var data = conf && conf.data;
 
         var request = new XMLHttpRequest();
+
+        if(type.toLowerCase() == 'post') {
+            request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+        }
         request.open(type, url, true);
 
         request.onload = function() {
@@ -34,7 +39,7 @@
             // There was a connection error of some sort
         };
 
-        request.send();
+        request.send(data);
     };
 
     var checkMockData = function(conf) {
