@@ -34,6 +34,7 @@
             // There was a connection error of some sort
         };
 
+        request.responseType = 'json';
         request.send();
     };
 
